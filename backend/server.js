@@ -6,7 +6,7 @@ const pool = require('./db');
 
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
-const frontendDir = path.join(__dirname, '..', 'frontend');
+const frontendDir = path.join(__dirname, '..', 'public');
 
 app.use(cors());
 app.use(express.json());
