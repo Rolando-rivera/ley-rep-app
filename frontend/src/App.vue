@@ -1,5 +1,5 @@
 <template>
-  <div v-cloak>
+  <div >
       <template v-if="!isAuthenticated">
         <div class="login-shell">
           <section class="login-card">
