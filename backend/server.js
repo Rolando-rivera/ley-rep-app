@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
 const crypto = require('crypto');
@@ -10,7 +11,7 @@ const frontendDistDir = path.join(__dirname, '..', 'frontend', 'dist');
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(frontendDir));
+app.use(express.static(frontendDistDir));
 
 function parseNumber(value) {
   if (value === undefined || value === null || value === '') return null;
@@ -949,20 +950,18 @@ app.get('/api/auditoria', async (_, res) => {
   }
 });
 
-app.get(/^(?!\/api\/).*/, (req, res) => {
-  return res.sendFile(path.join(frontendDir, 'index.html'));
-});
-
-app.listen(PORT, () => {
-  console.log(`Ley REP app escuchando en puerto ${PORT}`);
-});
 
 const hasFrontendBuild = fs.existsSync(path.join(frontendDistDir, 'index.html'));
 
 app.get('*', (req, res, next) => {
   if (req.path.startsWith('/api/')) return next();
   if (!hasFrontendBuild) {
-    return res.status(503).send('Frontend Vue 3 + Vite no compilado.');
-  }
+    return res.status(503).send('Frontend Vue 3 + Vite no compilado. Ejecuta `cd frontend && npm install && npm run build` o inicia `npm run dev` en frontend para desarrollo local.');
+
   return res.sendFile(path.join(frontendDistDir, 'index.html'));
+}
+});
+
+app.listen(PORT, () => {
+  console.log(`Ley REP app escuchando en puerto ${PORT}`);
 });
