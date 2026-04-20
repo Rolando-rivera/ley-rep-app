@@ -5,7 +5,7 @@
           <section class="login-card">
             <div class="login-copy">
               <p class="eyebrow text">Acceso a la demo</p>
-              <h1>Plataforma Ley REP</h1>
+              <h1>EcoTrazabilidad REP: Gestión Digital de Residuos bajo el Decreto 8</h1>
               <p class="page-copy">
                 Inicia sesión con un usuario genérico para mostrar los perfiles solicitados en la evaluación.
               </p>
