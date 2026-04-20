@@ -43,7 +43,7 @@
         <aside class="sidebar">
           <div>
             <p class="eyebrow">Proyecto de título</p>
-            <h1>Plataforma Ley REP</h1>
+            <h1>EcoTrazabilidad REP: Gestión Digital de Residuos bajo el Decreto 8</h1>
             <p class="sidebar-copy">
               Sistema web de trazabilidad digital para declaraciones REP, reglas automáticas, alertas preventivas y auditoría de eventos.
             </p>
