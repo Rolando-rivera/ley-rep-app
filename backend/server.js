@@ -6,7 +6,7 @@ const pool = require('./db');
 
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
-const frontendDir = path.join(__dirname, '..', 'public');
+const frontendDistDir = path.join(__dirname, '..', 'frontend', 'dist');
 
 app.use(cors());
 app.use(express.json());
@@ -955,4 +955,14 @@ app.get(/^(?!\/api\/).*/, (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Ley REP app escuchando en puerto ${PORT}`);
+});
+
+const hasFrontendBuild = fs.existsSync(path.join(frontendDistDir, 'index.html'));
+
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api/')) return next();
+  if (!hasFrontendBuild) {
+    return res.status(503).send('Frontend Vue 3 + Vite no compilado.');
+  }
+  return res.sendFile(path.join(frontendDistDir, 'index.html'));
 });
