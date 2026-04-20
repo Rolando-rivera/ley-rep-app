@@ -28,10 +28,7 @@ body {
     radial-gradient(circle at top left, rgba(46, 125, 50, 0.09), transparent 26%),
     linear-gradient(180deg, #f8fbf8 0%, #eef4ef 100%);
 }
-[v-cloak] { display: none; }
-button, input, select, textarea { font: inherit; }
-button { cursor: pointer; }
-h1, h2, h3, h4, p { margin: 0; }
+
 
 .layout-shell {
   min-height: 100vh;
