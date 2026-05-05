@@ -4,10 +4,10 @@
         <div class="login-shell">
           <section class="login-card">
             <div class="login-copy">
-              <p class="eyebrow text">Acceso a la demo</p>
-              <h1>EcoTrazabilidad REP: Gestión Digital de Residuos bajo el Decreto 8</h1>
+              <p class="eyebrow text">Ingreso al sistema</p>
+              <h1>EcoTrazabilidad REP</h1>
               <p class="page-copy">
-                Inicia sesión con un usuario genérico para mostrar los perfiles solicitados en la evaluación.
+                En esta versión dejé accesos de prueba para que se pueda revisar de forma simple cómo resolví los perfiles Productor, Gestor y Administrador dentro de EcoTrazabilidad REP.
               </p>
             </div>
 
@@ -21,7 +21,7 @@
                 <input v-model="loginForm.password" type="password" placeholder="admin123" required />
               </div>
               <div class="actions full">
-                <button class="primary-btn" type="submit">Iniciar sesión</button>
+                <button class="primary-btn" type="submit">Entrar al sistema</button>
               </div>
             </form>
 
@@ -30,7 +30,7 @@
                 <strong>{{ item.rol }}</strong>
                 <span>{{ item.email }}</span>
                 <code>{{ item.password }}</code>
-                <button class="secondary-btn small" type="button" @click="useDemoUser(item)">Usar este acceso</button>
+                <button class="secondary-btn small" type="button" @click="useDemoUser(item)">Cargar este perfil</button>
               </article>
             </div>
 
@@ -43,9 +43,9 @@
         <aside class="sidebar">
           <div>
             <p class="eyebrow">Proyecto de título</p>
-            <h1>EcoTrazabilidad REP: Gestión Digital de Residuos bajo el Decreto 8</h1>
+            <h1>EcoTrazabilidad REP</h1>
             <p class="sidebar-copy">
-              Sistema web de trazabilidad digital para declaraciones REP, reglas automáticas, alertas preventivas y auditoría de eventos.
+              En esta plataforma desarrollé una solución web para registrar, validar y trazar digitalmente residuos prioritarios bajo el Decreto Supremo N° 8, incorporando alertas preventivas, validaciones automáticas y auditoría de eventos.
             </p>
           </div>
 
@@ -55,7 +55,7 @@
               <span class="ok">{{ currentUser.nombre }}</span>
             </div>
             <div class="muted-row">{{ currentUser.nombre_rol }} · {{ currentUser.email }}</div>
-            <button class="ghost-btn" type="button" @click="logout">Cerrar sesión</button>
+            <button class="ghost-btn" type="button" @click="logout">Salir</button>
           </div>
 
           <div class="menu-stack">
@@ -91,7 +91,7 @@
             </div>
             <div class="header-actions">
               <div class="session-pill">{{ currentUser.nombre_rol }}</div>
-              <button class="ghost-btn" type="button" @click="loadAll">Recargar datos</button>
+              <button class="ghost-btn" type="button" @click="loadAll">Actualizar vista</button>
             </div>
           </header>
 
@@ -122,7 +122,7 @@
                 <div>
                   <h3>Arquitectura aplicada</h3>
                   <p>
-                    Frontend web con Vue 3 servido desde Express, backend Node.js con API REST y persistencia en PostgreSQL desplegado en Render.
+                    Para este proyecto implementé un frontend en Vue 3 + Vite con CSS nativo, un backend en Node.js + Express con API REST y persistencia en PostgreSQL desplegado en Render.
                   </p>
                 </div>
               </div>
@@ -130,13 +130,13 @@
                 <div>
                   <h4>Qué resuelve</h4>
                   <p>
-                    Permite registrar declaraciones REP, ejecutar reglas automáticas, generar alertas preventivas y dejar trazabilidad de auditoría para cada operación relevante.
+                    La aplicación me permite registrar declaraciones REP, validar datos del período, ejecutar reglas automáticas, generar alertas preventivas y dejar trazabilidad de auditoría para cada operación relevante.
                   </p>
                 </div>
                 <div>
-                  <h4>Qué puedes mostrar en la evaluación</h4>
+                  <h4>Qué dejé implementado</h4>
                   <p>
-                    CRUD de declaraciones, categorías REP, metas anuales, reglas de validación y usuarios, más un flujo operativo de validación y seguimiento para el perfil gestor.
+                    En esta versión dejé funcionando el CRUD de declaraciones REP, categorías REP y metas anuales, además de la gestión de reglas, usuarios, validación operativa, seguimiento, alertas y auditoría para los perfiles Productor, Gestor y Administrador.
                   </p>
                 </div>
               </div>
@@ -145,8 +145,117 @@
             <article class="card">
               <div class="card-head">
                 <div>
+                  <h3>Acceso rápido al proyecto</h3>
+                  <p>Aquí dejé los enlaces principales para revisar el despliegue y también el repositorio público del desarrollo.</p>
+                </div>
+              </div>
+              <div class="link-grid">
+                <a class="quick-link" href="https://ley-rep-app.onrender.com" target="_blank" rel="noreferrer">
+                  <strong>Aplicación desplegada</strong>
+                  <span>https://ley-rep-app.onrender.com</span>
+                </a>
+                <a class="quick-link" href="https://github.com/Rolando-rivera/ley-rep-app" target="_blank" rel="noreferrer">
+                  <strong>Repositorio público</strong>
+                  <span>github.com/Rolando-rivera/ley-rep-app</span>
+                </a>
+              </div>
+            </article>
+
+
+
+
+            <article class="card">
+              <div class="card-head">
+                <div>
+                  <h3>Cómo dejé conectada la base de datos</h3>
+                  <p>
+                    Para esta demo dejé preparado el backend para reutilizar la misma base PostgreSQL que ya había creado en Render en la entrega anterior. La conexión se realiza con la variable <code>DATABASE_URL</code> y con SSL activo.
+                  </p>
+                </div>
+              </div>
+              <div class="two-col-text">
+                <div>
+                  <h4>Lo importante</h4>
+                  <ul class="guide-list">
+                    <li>La app no depende de una base nueva si ya existe una creada previamente.</li>
+                    <li>El backend toma la conexión desde <code>backend/.env</code> o desde las variables de entorno de Render.</li>
+                    <li>Si la base ya tiene el esquema correcto, puedo trabajar directo sobre esa misma instancia.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Qué dejo recomendado</h4>
+                  <ul class="guide-list">
+                    <li>Usar la External Database URL de la base que ya está creada.</li>
+                    <li>Mantener <code>DATABASE_SSL=true</code>.</li>
+                    <li>Ejecutar el script SQL solo si necesito reiniciar o volver a sembrar la base.</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head">
+                <div>
+                  <h3>Cómo dejé ordenado el proyecto</h3>
+                  <p>
+                    También dejé una guía breve para que se entienda rápido dónde está cada parte del proyecto y cómo volver a montarlo en GitHub y Render sin perder el orden.
+                  </p>
+                </div>
+              </div>
+              <div class="guide-grid">
+                <div>
+                  <h4>Estructura</h4>
+                  <ul class="guide-list">
+                    <li><strong>frontend/</strong>: interfaz Vue 3 + Vite.</li>
+                    <li><strong>backend/</strong>: API REST y conexión a PostgreSQL.</li>
+                    <li><strong>sql/</strong>: script de creación y carga base.</li>
+                    <li><strong>docs/</strong>: pasos para conectar la base, subir a GitHub y desplegar.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Montaje resumido</h4>
+                  <ol class="guide-list ordered-list">
+                    <li>Configurar <code>DATABASE_URL</code> con la base ya creada.</li>
+                    <li>Probar backend y frontend en local.</li>
+                    <li>Subir cambios al repositorio público.</li>
+                    <li>Hacer deploy en Render con las variables correctas.</li>
+                  </ol>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head">
+                <div>
+                  <h3>Cómo recomiendo revisar la demo</h3>
+                  <p>Dejé esta guía breve dentro de la aplicación para que se entienda rápido qué revisar primero y en qué orden.</p>
+                </div>
+              </div>
+              <div class="guide-grid">
+                <div>
+                  <h4>Ruta sugerida</h4>
+                  <ul class="guide-list">
+                    <li>Ingresar primero con el perfil Administrador para revisar catálogos, metas, reglas y usuarios.</li>
+                    <li>Luego usar el perfil Productor para registrar o editar declaraciones REP.</li>
+                    <li>Finalmente entrar como Gestor para revisar validaciones, atender alertas y validar o rechazar declaraciones.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Qué intenté dejar claro</h4>
+                  <ul class="guide-list">
+                    <li>Separación por roles y control de acceso según el tipo de usuario.</li>
+                    <li>CRUD de dominio para declaraciones, categorías REP y metas anuales.</li>
+                    <li>Trazabilidad mediante auditoría, alertas preventivas y reglas de validación.</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head">
+                <div>
                   <h3>Últimos eventos de auditoría</h3>
-                  <p>Registro cronológico de acciones ejecutadas sobre la plataforma.</p>
+                  <p>Registro cronológico de acciones relevantes ejecutadas sobre la plataforma.</p>
                 </div>
               </div>
               <div class="table-wrap">
@@ -179,7 +288,7 @@
                 <div>
                   <h3>Registro de declaraciones REP</h3>
                   <p>
-                    Formulario CRUD completo para el perfil productor. Al guardar, el sistema recalcula validaciones y deja la declaración en estado pendiente.
+                    Aquí dejé el formulario principal del perfil Productor. Al guardar, el sistema recalcula las validaciones y deja la declaración en estado pendiente para su revisión posterior.
                   </p>
                 </div>
               </div>
@@ -188,7 +297,7 @@
                 <div class="field">
                   <label>Productor</label>
                   <select v-model="declaracionForm.id_usuario" :disabled="isProductor" required>
-                    <option value="">Seleccione un productor</option>
+                    <option value="">Elegir productor</option>
                     <option v-for="item in productorUsers" :key="item.id_usuario" :value="String(item.id_usuario)">
                       {{ item.nombre }}
                     </option>
@@ -197,7 +306,7 @@
                 <div class="field">
                   <label>Categoría REP</label>
                   <select v-model="declaracionForm.id_categoria" required>
-                    <option value="">Seleccione una categoría</option>
+                    <option value="">Elegir categoría</option>
                     <option v-for="item in categoriasActivas" :key="item.id_categoria" :value="String(item.id_categoria)">
                       {{ item.nombre_categoria }}
                     </option>
@@ -210,7 +319,7 @@
                 <div class="field">
                   <label>Mes</label>
                   <select v-model="declaracionForm.mes_periodo" required>
-                    <option value="">Seleccione mes</option>
+                    <option value="">Elegir mes</option>
                     <option v-for="mes in meses" :key="mes.value" :value="String(mes.value)">{{ mes.label }}</option>
                   </select>
                 </div>
@@ -220,13 +329,13 @@
                 </div>
                 <div class="field full">
                   <label>Observación</label>
-                  <textarea v-model="declaracionForm.observacion" placeholder="Detalle breve de la declaración"></textarea>
+                  <textarea v-model="declaracionForm.observacion" placeholder="Agregar un detalle breve si corresponde"></textarea>
                 </div>
                 <div class="actions full">
                   <button class="primary-btn" type="submit">
-                    {{ declaracionForm.id_declaracion ? 'Actualizar declaración' : 'Guardar declaración' }}
+                    {{ declaracionForm.id_declaracion ? 'Guardar cambios' : 'Registrar declaración' }}
                   </button>
-                  <button class="secondary-btn" type="button" @click="resetDeclaracionForm">Limpiar</button>
+                  <button class="secondary-btn" type="button" @click="resetDeclaracionForm">Limpiar formulario</button>
                 </div>
               </form>
             </article>
@@ -235,9 +344,9 @@
               <div class="card-head wrap">
                 <div>
                   <h3>Declaraciones registradas</h3>
-                  <p>Listado principal del proceso con estado actual y edición directa.</p>
+                  <p>Listado principal del proceso, con estado actual y acceso directo a edición.</p>
                 </div>
-                <input class="search-input" v-model="searchDeclaraciones" type="search" placeholder="Buscar por usuario, categoría o estado" />
+                <input class="search-input" v-model="searchDeclaraciones" type="search" placeholder="Buscar por productor, categoría o estado" />
               </div>
               <div class="table-wrap">
                 <table class="data-table" v-if="filteredDeclaraciones.length">
@@ -269,7 +378,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <div v-else class="empty-state">No hay declaraciones registradas.</div>
+                <div v-else class="empty-state">Todavía no hay declaraciones registradas.</div>
               </div>
             </article>
           </section>
@@ -279,7 +388,7 @@
               <div class="card-head wrap">
                 <div>
                   <h3>Validación operativa</h3>
-                  <p>El gestor puede aprobar o rechazar declaraciones una vez revisadas las reglas automáticas.</p>
+                  <p>Desde aquí el Gestor puede revisar el resultado de las reglas automáticas y luego aprobar o rechazar declaraciones.</p>
                 </div>
               </div>
               <div class="table-wrap">
@@ -303,7 +412,7 @@
                       <td>{{ formatDate(item.fecha_declaracion) }}</td>
                       <td>
                         <div class="table-actions">
-                          <button class="primary-btn small" type="button" @click="changeEstado(item.id_declaracion, 'validar')">Validar</button>
+                          <button class="primary-btn small" type="button" @click="changeEstado(item.id_declaracion, 'validar')">Aprobar</button>
                           <button class="danger-btn small" type="button" @click="changeEstado(item.id_declaracion, 'rechazar')">Rechazar</button>
                         </div>
                       </td>
@@ -315,7 +424,7 @@
 
             <article class="card split-card">
               <div>
-                <div class="card-head"><div><h3>Validaciones automáticas</h3><p>Resultado de las reglas aplicadas por el sistema.</p></div></div>
+                <div class="card-head"><div><h3>Validaciones automáticas</h3><p>Resultado de las reglas que ejecuta el sistema sobre cada declaración.</p></div></div>
                 <div class="table-wrap compact">
                   <table class="data-table" v-if="validaciones.length">
                     <thead>
@@ -336,7 +445,7 @@
                 </div>
               </div>
               <div>
-                <div class="card-head"><div><h3>Alertas preventivas</h3><p>Alertas derivadas de reglas que requieren atención.</p></div></div>
+                <div class="card-head"><div><h3>Alertas preventivas</h3><p>Alertas generadas por reglas que requieren seguimiento.</p></div></div>
                 <div class="table-wrap compact">
                   <table class="data-table" v-if="alertas.length">
                     <thead>
@@ -352,13 +461,13 @@
                         <td>{{ item.mensaje }}</td>
                         <td>
                           <button class="secondary-btn small" type="button" @click="markAlerta(item.id_alerta, true)">
-                            {{ item.atendida ? 'Atendida' : 'Marcar atendida' }}
+                            {{ item.atendida ? 'Atendida' : 'Marcar como revisada' }}
                           </button>
                         </td>
                       </tr>
                     </tbody>
                   </table>
-                  <div v-else class="empty-state">No existen alertas abiertas.</div>
+                  <div v-else class="empty-state">No hay alertas abiertas en este momento.</div>
                 </div>
               </div>
             </article>
@@ -366,7 +475,7 @@
 
           <section v-if="currentView === 'admin'" class="section-stack">
             <article class="card">
-              <div class="card-head"><div><h3>CRUD de categorías REP</h3><p>Permite mantener el catálogo principal del dominio.</p></div></div>
+              <div class="card-head"><div><h3>Mantenimiento de categorías REP</h3><p>Desde aquí dejo administrado el catálogo principal del dominio.</p></div></div>
               <form class="grid-form" @submit.prevent="saveCategoria">
                 <div class="field">
                   <label>Nombre categoría</label>
@@ -381,8 +490,8 @@
                   <textarea v-model="categoriaForm.descripcion"></textarea>
                 </div>
                 <div class="actions full">
-                  <button class="primary-btn" type="submit">{{ categoriaForm.id_categoria ? 'Actualizar categoría' : 'Crear categoría' }}</button>
-                  <button class="secondary-btn" type="button" @click="resetCategoriaForm">Limpiar</button>
+                  <button class="primary-btn" type="submit">{{ categoriaForm.id_categoria ? 'Guardar cambios' : 'Crear categoría REP' }}</button>
+                  <button class="secondary-btn" type="button" @click="resetCategoriaForm">Limpiar formulario</button>
                 </div>
               </form>
               <div class="table-wrap top-gap">
@@ -406,7 +515,7 @@
             </article>
 
             <article class="card">
-              <div class="card-head"><div><h3>CRUD de metas anuales</h3><p>Parámetros de cumplimiento por categoría y año.</p></div></div>
+              <div class="card-head"><div><h3>Mantenimiento de metas anuales</h3><p>Parámetros de cumplimiento definidos por categoría y año.</p></div></div>
               <form class="grid-form" @submit.prevent="saveMeta">
                 <div class="field">
                   <label>Categoría</label>
@@ -424,8 +533,8 @@
                   <input v-model="metaForm.porcentaje_meta" type="number" min="0" max="100" step="0.01" required />
                 </div>
                 <div class="actions full">
-                  <button class="primary-btn" type="submit">{{ metaForm.id_meta ? 'Actualizar meta' : 'Crear meta' }}</button>
-                  <button class="secondary-btn" type="button" @click="resetMetaForm">Limpiar</button>
+                  <button class="primary-btn" type="submit">{{ metaForm.id_meta ? 'Guardar cambios' : 'Crear meta anual' }}</button>
+                  <button class="secondary-btn" type="button" @click="resetMetaForm">Limpiar formulario</button>
                 </div>
               </form>
               <div class="table-wrap top-gap">
@@ -450,7 +559,7 @@
             </article>
 
             <article class="card">
-              <div class="card-head"><div><h3>CRUD de reglas de validación</h3><p>Permite mantener la lógica parametrizable del motor de reglas.</p></div></div>
+              <div class="card-head"><div><h3>Mantenimiento de reglas de validación</h3><p>Aquí se administra la lógica parametrizable del motor de reglas.</p></div></div>
               <form class="grid-form" @submit.prevent="saveRegla">
                 <div class="field">
                   <label>Código</label>
@@ -477,8 +586,8 @@
                   <textarea v-model="reglaForm.descripcion" required></textarea>
                 </div>
                 <div class="actions full">
-                  <button class="primary-btn" type="submit">{{ reglaForm.id_regla ? 'Actualizar regla' : 'Crear regla' }}</button>
-                  <button class="secondary-btn" type="button" @click="resetReglaForm">Limpiar</button>
+                  <button class="primary-btn" type="submit">{{ reglaForm.id_regla ? 'Guardar cambios' : 'Crear regla' }}</button>
+                  <button class="secondary-btn" type="button" @click="resetReglaForm">Limpiar formulario</button>
                 </div>
               </form>
               <div class="table-wrap top-gap">
@@ -502,7 +611,7 @@
             </article>
 
             <article class="card">
-              <div class="card-head"><div><h3>Gestión de cuentas de usuario</h3><p>Formulario funcional de perfiles y cuentas, exigido por la pauta.</p></div></div>
+              <div class="card-head"><div><h3>Cuentas y perfiles de usuario</h3><p>Formulario funcional para administrar perfiles y cuentas dentro de la plataforma.</p></div></div>
               <form class="grid-form" @submit.prevent="saveUsuario">
                 <div class="field">
                   <label>Nombre</label>
@@ -520,7 +629,7 @@
                   </select>
                 </div>
                 <div class="field">
-                  <label>Contraseña {{ usuarioForm.id_usuario ? '(dejar en blanco para mantener)' : '' }}</label>
+                  <label>Contraseña {{ usuarioForm.id_usuario ? '(déjala vacía si no la cambiarás)' : '' }}</label>
                   <input v-model="usuarioForm.password" type="text" placeholder="demo123" />
                 </div>
                 <div class="field switch-field">
@@ -528,8 +637,8 @@
                   <input v-model="usuarioForm.activo" type="checkbox" />
                 </div>
                 <div class="actions full">
-                  <button class="primary-btn" type="submit">{{ usuarioForm.id_usuario ? 'Actualizar usuario' : 'Crear usuario' }}</button>
-                  <button class="secondary-btn" type="button" @click="resetUsuarioForm">Limpiar</button>
+                  <button class="primary-btn" type="submit">{{ usuarioForm.id_usuario ? 'Guardar cambios' : 'Crear usuario' }}</button>
+                  <button class="secondary-btn" type="button" @click="resetUsuarioForm">Limpiar formulario</button>
                 </div>
               </form>
               <div class="table-wrap top-gap">
@@ -577,27 +686,27 @@ export default {
       views: [
         {
           id: 'resumen',
-          label: 'Resumen ejecutivo',
-          description: 'Indicadores, arquitectura y trazabilidad.',
-          summary: 'Panel principal para explicar rápidamente la solución, sus métricas y sus últimas acciones registradas.',
+          label: 'Resumen general',
+          description: 'Resumen, enlaces y guía de revisión.',
+          summary: 'Panel principal con indicadores, enlaces del proyecto, una guía rápida de revisión y los últimos eventos relevantes del sistema.',
         },
         {
           id: 'productor',
           label: 'Perfil productor',
           description: 'CRUD de declaraciones REP.',
-          summary: 'Módulo para registrar, editar y eliminar declaraciones REP asociadas a productores y categorías del sistema.',
+          summary: 'Módulo que dejé preparado para registrar, editar y eliminar declaraciones REP asociadas a productores y categorías del sistema.',
         },
         {
           id: 'gestor',
           label: 'Perfil gestor',
           description: 'Validación, alertas y seguimiento.',
-          summary: 'Panel operativo para revisar reglas automáticas, atender alertas y aprobar o rechazar declaraciones.',
+          summary: 'Panel operativo para revisar resultados de validación, atender alertas y aprobar o rechazar declaraciones dentro del flujo definido para el proyecto.',
         },
         {
           id: 'admin',
           label: 'Perfil administrador',
           description: 'Catálogos, metas, reglas y usuarios.',
-          summary: 'Sección de mantenimiento del dominio con formularios CRUD para categorías, metas anuales, reglas de validación y cuentas.',
+          summary: 'Sección de mantenimiento del dominio con formularios CRUD para categorías REP, metas anuales, reglas de validación y cuentas, pensada para la administración general del sistema.',
         },
       ],
       meses: [
@@ -782,9 +891,9 @@ export default {
         this.resetDeclaracionForm();
         await this.checkHealth();
         await this.loadAll();
-        this.notify(`Bienvenido, ${this.currentUser.nombre}.`);
+        this.notify(`Sesión iniciada correctamente. Bienvenido, ${this.currentUser.nombre}.`);
       } catch (error) {
-        this.notify(error.message || 'No fue posible iniciar sesión.', 'error');
+        this.notify(error.message || 'No pude iniciar la sesión con esos datos.', 'error');
       }
     },
     useDemoUser(item) {
@@ -813,7 +922,7 @@ export default {
       this.resetMetaForm();
       this.resetReglaForm();
       this.resetUsuarioForm();
-      this.notify('Sesión cerrada.');
+      this.notify('La sesión se cerró correctamente.');
     },
     notify(message, type = 'success') {
       this.feedback = { message, type };
@@ -903,7 +1012,7 @@ export default {
         this.auditoria = auditoria;
         this.ensureCurrentView();
       } catch (error) {
-        this.notify(error.message || 'No fue posible cargar los datos del sistema.', 'error');
+        this.notify(error.message || 'No pude cargar los datos del sistema.', 'error');
       }
     },
     resetDeclaracionForm() {
@@ -932,7 +1041,7 @@ export default {
         observacion: item.observacion || '',
       };
       this.currentView = 'productor';
-      this.notify(`Editando la declaración #${item.id_declaracion}.`);
+      this.notify(`Cargué la declaración #${item.id_declaracion} para editarla.`);
     },
     async saveDeclaracion() {
       try {
@@ -950,27 +1059,27 @@ export default {
             method: 'PUT',
             body: JSON.stringify(payload),
           });
-          this.notify('La declaración fue actualizada correctamente.');
+          this.notify('La declaración quedó actualizada.');
         } else {
           await this.api('/api/declaraciones', { method: 'POST', body: JSON.stringify(payload) });
-          this.notify('La declaración fue registrada correctamente.');
+          this.notify('La declaración quedó registrada.');
         }
 
         this.resetDeclaracionForm();
         await this.loadAll();
       } catch (error) {
-        this.notify(error.message || 'No fue posible guardar la declaración.', 'error');
+        this.notify(error.message || 'No pude guardar la declaración.', 'error');
       }
     },
     async deleteDeclaracion(id) {
       if (!window.confirm(`¿Deseas eliminar la declaración #${id}?`)) return;
       try {
         await this.api(`/api/declaraciones/${id}`, { method: 'DELETE' });
-        this.notify(`La declaración #${id} fue eliminada.`);
+        this.notify(`Se eliminó la declaración #${id}.`);
         if (this.declaracionForm.id_declaracion === id) this.resetDeclaracionForm();
         await this.loadAll();
       } catch (error) {
-        this.notify(error.message || 'No fue posible eliminar la declaración.', 'error');
+        this.notify(error.message || 'No pude eliminar la declaración.', 'error');
       }
     },
     async changeEstado(id, accion) {
@@ -979,10 +1088,10 @@ export default {
           method: 'PUT',
           body: JSON.stringify({ accion }),
         });
-        this.notify(`La declaración #${id} fue ${accion === 'validar' ? 'validada' : 'rechazada'} correctamente.`);
+        this.notify(`La declaración #${id} quedó ${accion === 'validar' ? 'validada' : 'rechazada'}.`);
         await this.loadAll();
       } catch (error) {
-        this.notify(error.message || 'No fue posible cambiar el estado de la declaración.', 'error');
+        this.notify(error.message || 'No pude cambiar el estado de la declaración.', 'error');
       }
     },
     async markAlerta(id, atendida) {
@@ -991,10 +1100,10 @@ export default {
           method: 'PUT',
           body: JSON.stringify({ atendida }),
         });
-        this.notify(`La alerta #${id} fue actualizada.`);
+        this.notify(`La alerta #${id} quedó actualizada.`);
         await this.loadAll();
       } catch (error) {
-        this.notify(error.message || 'No fue posible actualizar la alerta.', 'error');
+        this.notify(error.message || 'No pude actualizar la alerta.', 'error');
       }
     },
     editCategoria(item) {
@@ -1005,7 +1114,7 @@ export default {
         activo: item.activo,
       };
       this.currentView = 'admin';
-      this.notify(`Editando la categoría #${item.id_categoria}.`);
+      this.notify(`Cargué la categoría #${item.id_categoria} para editarla.`);
     },
     async saveCategoria() {
       try {
@@ -1019,26 +1128,26 @@ export default {
             method: 'PUT',
             body: JSON.stringify(payload),
           });
-          this.notify('La categoría fue actualizada correctamente.');
+          this.notify('La categoría quedó actualizada.');
         } else {
           await this.api('/api/categorias', { method: 'POST', body: JSON.stringify(payload) });
-          this.notify('La categoría fue creada correctamente.');
+          this.notify('La categoría REP quedó creada.');
         }
         this.resetCategoriaForm();
         await this.loadAll();
       } catch (error) {
-        this.notify(error.message || 'No fue posible guardar la categoría.', 'error');
+        this.notify(error.message || 'No pude guardar la categoría.', 'error');
       }
     },
     async deleteCategoria(id) {
       if (!window.confirm(`¿Deseas eliminar la categoría #${id}?`)) return;
       try {
         await this.api(`/api/categorias/${id}`, { method: 'DELETE' });
-        this.notify(`La categoría #${id} fue eliminada.`);
+        this.notify(`Se eliminó la categoría #${id}.`);
         if (this.categoriaForm.id_categoria === id) this.resetCategoriaForm();
         await this.loadAll();
       } catch (error) {
-        this.notify(error.message || 'No fue posible eliminar la categoría.', 'error');
+        this.notify(error.message || 'No pude eliminar la categoría.', 'error');
       }
     },
     editMeta(item) {
@@ -1049,7 +1158,7 @@ export default {
         porcentaje_meta: item.porcentaje_meta,
       };
       this.currentView = 'admin';
-      this.notify(`Editando la meta #${item.id_meta}.`);
+      this.notify(`Cargué la meta #${item.id_meta} para editarla.`);
     },
     async saveMeta() {
       try {
@@ -1060,26 +1169,26 @@ export default {
         };
         if (this.metaForm.id_meta) {
           await this.api(`/api/metas/${this.metaForm.id_meta}`, { method: 'PUT', body: JSON.stringify(payload) });
-          this.notify('La meta anual fue actualizada correctamente.');
+          this.notify('La meta anual quedó actualizada.');
         } else {
           await this.api('/api/metas', { method: 'POST', body: JSON.stringify(payload) });
-          this.notify('La meta anual fue creada correctamente.');
+          this.notify('La meta anual quedó creada.');
         }
         this.resetMetaForm();
         await this.loadAll();
       } catch (error) {
-        this.notify(error.message || 'No fue posible guardar la meta anual.', 'error');
+        this.notify(error.message || 'No pude guardar la meta anual.', 'error');
       }
     },
     async deleteMeta(id) {
       if (!window.confirm(`¿Deseas eliminar la meta #${id}?`)) return;
       try {
         await this.api(`/api/metas/${id}`, { method: 'DELETE' });
-        this.notify(`La meta #${id} fue eliminada.`);
+        this.notify(`Se eliminó la meta #${id}.`);
         if (this.metaForm.id_meta === id) this.resetMetaForm();
         await this.loadAll();
       } catch (error) {
-        this.notify(error.message || 'No fue posible eliminar la meta anual.', 'error');
+        this.notify(error.message || 'No pude eliminar la meta anual.', 'error');
       }
     },
     editRegla(item) {
@@ -1093,7 +1202,7 @@ export default {
         activo: item.activo,
       };
       this.currentView = 'admin';
-      this.notify(`Editando la regla ${item.codigo_regla}.`);
+      this.notify(`Cargué la regla ${item.codigo_regla} para editarla.`);
     },
     async saveRegla() {
       try {
@@ -1107,26 +1216,26 @@ export default {
         };
         if (this.reglaForm.id_regla) {
           await this.api(`/api/reglas/${this.reglaForm.id_regla}`, { method: 'PUT', body: JSON.stringify(payload) });
-          this.notify('La regla de validación fue actualizada.');
+          this.notify('La regla quedó actualizada.');
         } else {
           await this.api('/api/reglas', { method: 'POST', body: JSON.stringify(payload) });
-          this.notify('La regla de validación fue creada.');
+          this.notify('La regla quedó creada.');
         }
         this.resetReglaForm();
         await this.loadAll();
       } catch (error) {
-        this.notify(error.message || 'No fue posible guardar la regla.', 'error');
+        this.notify(error.message || 'No pude guardar la regla.', 'error');
       }
     },
     async deleteRegla(id) {
       if (!window.confirm(`¿Deseas eliminar la regla #${id}?`)) return;
       try {
         await this.api(`/api/reglas/${id}`, { method: 'DELETE' });
-        this.notify(`La regla #${id} fue eliminada.`);
+        this.notify(`Se eliminó la regla #${id}.`);
         if (this.reglaForm.id_regla === id) this.resetReglaForm();
         await this.loadAll();
       } catch (error) {
-        this.notify(error.message || 'No fue posible eliminar la regla.', 'error');
+        this.notify(error.message || 'No pude eliminar la regla.', 'error');
       }
     },
     editUsuario(item) {
@@ -1139,7 +1248,7 @@ export default {
         activo: item.activo,
       };
       this.currentView = 'admin';
-      this.notify(`Editando el usuario #${item.id_usuario}.`);
+      this.notify(`Cargué el usuario #${item.id_usuario} para editarlo.`);
     },
     async saveUsuario() {
       try {
@@ -1152,26 +1261,26 @@ export default {
         };
         if (this.usuarioForm.id_usuario) {
           await this.api(`/api/usuarios/${this.usuarioForm.id_usuario}`, { method: 'PUT', body: JSON.stringify(payload) });
-          this.notify('El usuario fue actualizado correctamente.');
+          this.notify('El usuario quedó actualizado.');
         } else {
           await this.api('/api/usuarios', { method: 'POST', body: JSON.stringify(payload) });
-          this.notify('El usuario fue creado correctamente.');
+          this.notify('El usuario quedó creado.');
         }
         this.resetUsuarioForm();
         await this.loadAll();
       } catch (error) {
-        this.notify(error.message || 'No fue posible guardar el usuario.', 'error');
+        this.notify(error.message || 'No pude guardar el usuario.', 'error');
       }
     },
     async deleteUsuario(id) {
       if (!window.confirm(`¿Deseas eliminar el usuario #${id}?`)) return;
       try {
         await this.api(`/api/usuarios/${id}`, { method: 'DELETE' });
-        this.notify(`El usuario #${id} fue eliminado.`);
+        this.notify(`Se eliminó el usuario #${id}.`);
         if (this.usuarioForm.id_usuario === id) this.resetUsuarioForm();
         await this.loadAll();
       } catch (error) {
-        this.notify(error.message || 'No fue posible eliminar el usuario.', 'error');
+        this.notify(error.message || 'No pude eliminar el usuario.', 'error');
       }
     },
   },

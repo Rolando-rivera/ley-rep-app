@@ -957,9 +957,8 @@ app.get('*', (req, res, next) => {
   if (req.path.startsWith('/api/')) return next();
   if (!hasFrontendBuild) {
     return res.status(503).send('Frontend Vue 3 + Vite no compilado. Ejecuta `cd frontend && npm install && npm run build` o inicia `npm run dev` en frontend para desarrollo local.');
-
+  }
   return res.sendFile(path.join(frontendDistDir, 'index.html'));
-}
 });
 
 app.listen(PORT, () => {
